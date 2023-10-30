@@ -75,16 +75,16 @@ update(){
   echo "[update] ...done."
 }
 
-package(){
-  info "[package] ..."
+release(){
+  info "[release] ..."
   _pwd=`pwd`
   cd "$mysys_folder"
 
   tar cjpvf "$TAR_FILE" "include" "bin"
-  if [ ! "$?" -eq "0" ] ; then err "[package] could not tar it" && cd "$_pwd" && return 1; fi
+  if [ ! "$?" -eq "0" ] ; then err "[release] could not tar it" && cd "$_pwd" && return 1; fi
 
   cd "$_pwd"
-  info "[package] ...done."
+  info "[release] ...done."
 }
 
 
@@ -96,7 +96,7 @@ usage() {
 
     commands:
       - update: updates 'mysys'
-      - package: packages mysys into a tar for release purposes
+      - release: packages mysys into a tar for release purposes
 EOM
   exit 1
 }
@@ -107,8 +107,8 @@ case "$1" in
   update)
     update
     ;;
-  package)
-    package
+  release)
+    release
     ;;
   *)
     usage

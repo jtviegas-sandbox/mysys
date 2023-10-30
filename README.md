@@ -31,5 +31,5 @@ you should now see this when running `bin/mysys.sh`:
 
         commands:
         - update: updates 'mysys'
-        - package: packages mysys into a tar for release purposes
+        - release: packages mysys into a tar for release purposes
 
