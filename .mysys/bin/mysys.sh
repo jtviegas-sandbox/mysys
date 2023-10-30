@@ -34,7 +34,6 @@ err(){
 # ---------- CONSTANTS ----------
 export FILE_VARIABLES=${FILE_VARIABLES:-".variables"}
 export FILE_SECRETS=${FILE_SECRETS:-".secrets"}
-export MYSYS_PATH=~/.mysys
 export TAR_FILE="mysys.tar.bz2"
 # -------------------------------
 if [ ! -f "$mysys_folder/$FILE_VARIABLES" ]; then
@@ -58,12 +57,12 @@ update(){
 
   _pwd=`pwd`
 
-  if [ ! -d "$MYSYS_PATH" ]; then
-    err "can't find $MYSYS_PATH folder ! sorry I am leaving"
+  if [ ! -d "$mysys_folder" ]; then
+    err "can't find $mysys_folder folder ! sorry I am leaving"
     exit 1
   fi
 
-  cd "$MYSYS_PATH"
+  cd "$mysys_folder"
 
   curl -s https://api.github.com/repos/jtviegas-sandbox/mysys/releases/latest \
   | grep "browser_download_url.*mysys\.tar\.bz2" \
@@ -79,7 +78,7 @@ update(){
 package(){
   info "[package] ..."
   _pwd=`pwd`
-  cd "$MYSYS_PATH"
+  cd "$mysys_folder"
 
   tar cjpvf "$TAR_FILE" "include" "bin"
   if [ ! "$?" -eq "0" ] ; then err "[package] could not tar it" && cd "$_pwd" && return 1; fi
