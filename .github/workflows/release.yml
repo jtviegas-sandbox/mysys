@@ -12,7 +12,7 @@ jobs:
     - name: set timestamp
       run: echo "RELEASE_TS=$(date +'%y%m%d%H%M%S')" >> ${GITHUB_ENV}
     - name: package
-      run: ./.mysys/mysys.sh package
+      run: ./.mysys/bin/mysys.sh package
     - name: create release
       uses: svenstaro/upload-release-action@v2
       with:
