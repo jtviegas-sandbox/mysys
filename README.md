@@ -15,7 +15,7 @@ configurations for my system (laptop)
     wget https://raw.githubusercontent.com/jtviegas-sandbox/mysys/main/.mysys/bin/mysys.sh
     ```
   * make it executable: `chmod +x mysys.sh`
-  * update bashutils include file: `./mysys.sh update`
+  * update __mysys__ with latest version from the github repo: `./mysys.sh update`
 
 you should now see this when running `./mysys.sh`:
 
