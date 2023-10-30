@@ -82,7 +82,7 @@ release(){
 
   tar cjpvf "$TAR_FILE" "include" "bin"
   if [ ! "$?" -eq "0" ] ; then err "[release] could not tar it" && cd "$_pwd" && return 1; fi
-
+  ls -altr
   cd "$_pwd"
   info "[release] ...done."
 }
