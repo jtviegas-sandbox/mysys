@@ -46,7 +46,12 @@ you should now see this when running `./mysys.sh`:
        - release: packages mysys into a tar for release purposes
   ```
 
-* you can always override the variables and secrets in your local files:
+## usage
+
+* export system wide variables and secrets from within your local __mysys__ files, they will be loaded every time the system starts:
   * `~/.mysys/.variables`
   * `~/.mysys/.secrets`
+
+* access various utility scripts provided by __mysys__ in the terminal, as in:
+  * `mysys_*`
 
