@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: create release package
+    - name: create release bundle
       run: ./.mysys/bin/mysys.sh release
     - name: create release
       uses: ncipollo/release-action@v1
