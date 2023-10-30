@@ -1,0 +1,23 @@
+name: release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: set timestamp
+      run: echo "RELEASE_TS=$(date +'%y%m%d%H%M%S')" >> ${GITHUB_ENV}
+    - name: package
+      run: ./.mysys/mysys.sh package
+    - name: create release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: mysys.tar.bz2
+        tag: mysys-${{ env.RELEASE_TS }}
+        asset_name: mysys.tar.bz2
+        overwrite: true
