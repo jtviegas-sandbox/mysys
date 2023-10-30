@@ -36,12 +36,6 @@ export FILE_VARIABLES=${FILE_VARIABLES:-".variables"}
 export FILE_SECRETS=${FILE_SECRETS:-".secrets"}
 export MYSYS_PATH=~/.mysys
 export TAR_FILE="mysys.tar.bz2"
-
-if [ "$MYSYS_PATH" != "$mysys_folder" ]; then
-    err "$MYSYS_PATH is not identical to $mysys_folder ! sorry I am leaving"
-    exit 1
-fi
-
 # -------------------------------
 if [ ! -f "$mysys_folder/$FILE_VARIABLES" ]; then
   warn "we DON'T have a $FILE_VARIABLES variables file - creating it"
