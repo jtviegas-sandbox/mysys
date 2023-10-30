@@ -3,13 +3,9 @@ configurations for my system (laptop)
 
 ## getting started
 
-* create `~/.mysys/` folder:
+* create `~/.mysys/bin` folder:
     ```
-    mkdir ~/.mysys
-    ```
-* __source__ the `.mysys/include` file in your system's profile initialisation file ( `.zprofile`, `.bash_profile`, etc... )
-    ```
-    . ~/.mysys/include
+    mkdir -p ~/.mysys/bin
     ```
 
 * download `mysys.sh` script
@@ -32,4 +28,13 @@ you should now see this when running `bin/mysys.sh`:
         commands:
         - update: updates 'mysys'
         - release: packages mysys into a tar for release purposes
+
+* __source__ the `.mysys/include` file in your system's profile initialisation file ( `.zprofile`, `.bash_profile`, etc... )
+    ```
+    . ~/.mysys/include
+    ```
+
+* you can always override the variables and secrets in your local files:
+  * `~/.mysys/.variables`
+  * `~/.mysys/.secrets`
 
