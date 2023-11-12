@@ -85,6 +85,26 @@ release(){
   info "[release] ...done."
 }
 
+config(){
+  info "[config] ..."
+  _pwd=`pwd`
+
+  cd ~/
+
+  if [ ! -f ".pypirc" ] && [ ! -z "$PYPI_TOKEN" ]; then
+    info "[] no '.pypirc' going to create it"
+    echo "[pypi]" > .pypirc
+    echo "username = __token__" >> .pypirc
+    echo "password = $PYPI_TOKEN" >> .pypirc
+  fi
+
+  cd "$_pwd"
+  info "[config] ...done."
+}
+
+
+
+
 
 # -------------------------------------
 usage() {
@@ -95,6 +115,9 @@ usage() {
     commands:
       - update: updates 'mysys'
       - release: packages mysys into a tar for release purposes
+      - config: adds several system configurations
+                  - .pypirc
+                  - ...
 EOM
   exit 1
 }
@@ -107,6 +130,9 @@ case "$1" in
     ;;
   release)
     release
+    ;;
+  config)
+    config
     ;;
   *)
     usage
